@@ -10,7 +10,7 @@
       <sourceFolder url="file://$MODULE_DIR$/headers/TCPListenerSocket.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/headers/Socket.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/headers/UDPSocket.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/bin" />
     </content>
