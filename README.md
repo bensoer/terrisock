@@ -8,7 +8,7 @@ Currently the project is in massive development
 
 ###File Structure
 Note this file structure is not finalized and may be altered as more suitable structures are found later on
-
+```
 root
 |
 |-- bin
@@ -29,3 +29,4 @@ root
 |-- CMakeLists.txt
 |-- README.md
 |-- .gitignore
+```
