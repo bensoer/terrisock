@@ -3,3 +3,5 @@
 //
 
 #include "UDPPacket.h"
+
+using namespace terrisock;

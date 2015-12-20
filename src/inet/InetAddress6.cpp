@@ -3,3 +3,5 @@
 //
 
 #include "InetAddress6.h"
+
+using namespace terrisock;

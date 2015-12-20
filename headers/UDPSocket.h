@@ -5,10 +5,12 @@
 #ifndef TERRISOCK_UDPSOCKET_H
 #define TERRISOCK_UDPSOCKET_H
 
+namespace terrisock {
+    class UDPSocket {
 
-class UDPSocket {
+    };
+}
 
-};
 
 
 #endif //TERRISOCK_UDPSOCKET_H

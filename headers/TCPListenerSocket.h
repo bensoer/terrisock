@@ -5,10 +5,12 @@
 #ifndef TERRISOCK_TCPLISTENERSOCKET_H
 #define TERRISOCK_TCPLISTENERSOCKET_H
 
+namespace terrisock {
+    class TCPListenerSocket {
 
-class TCPListenerSocket {
+    };
+}
 
-};
 
 
 #endif //TERRISOCK_TCPLISTENERSOCKET_H

@@ -3,3 +3,5 @@
 //
 
 #include "SocketAddress.h"
+
+using namespace terrisock;

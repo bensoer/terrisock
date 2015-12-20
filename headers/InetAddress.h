@@ -5,10 +5,12 @@
 #ifndef TERRISOCK_INETADDRESS_H
 #define TERRISOCK_INETADDRESS_H
 
+namespace terrisock {
+    class InetAddress {
 
-class InetAddress {
+    };
+}
 
-};
 
 
 #endif //TERRISOCK_INETADDRESS_H
