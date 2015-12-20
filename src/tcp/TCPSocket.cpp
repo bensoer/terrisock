@@ -3,3 +3,22 @@
 //
 
 #include "TCPSocket.h"
+
+using namespace terrisock;
+
+void TCPSocket::setSocket(int socket) {
+
+}
+
+int TCPSocket::getSocket() {
+
+}
+
+void TCPSocket::getIStream() {
+
+}
+
+void TCPSocket::getOStream() {
+
+}
+

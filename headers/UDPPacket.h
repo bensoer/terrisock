@@ -5,10 +5,12 @@
 #ifndef TERRISOCK_UDPPACKET_H
 #define TERRISOCK_UDPPACKET_H
 
+namespace terrisock {
+    class UDPPacket {
 
-class UDPPacket {
+    };
+}
 
-};
 
 
 #endif //TERRISOCK_UDPPACKET_H

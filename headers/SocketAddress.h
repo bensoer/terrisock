@@ -5,10 +5,12 @@
 #ifndef TERRISOCK_SOCKETADDRESS_H
 #define TERRISOCK_SOCKETADDRESS_H
 
+namespace terrisock {
+    class SocketAddress {
 
-class SocketAddress {
+    };
+}
 
-};
 
 
 #endif //TERRISOCK_SOCKETADDRESS_H
