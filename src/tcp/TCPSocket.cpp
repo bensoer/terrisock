@@ -22,3 +22,7 @@ void TCPSocket::getOStream() {
 
 }
 
+void TCPSocket::connect(SocketAddress address){
+
+}
+

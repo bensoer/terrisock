@@ -22,6 +22,8 @@ namespace terrisock {
         virtual void setSocket(int socket) = 0;
         virtual int getSocket() = 0;
 
+        virtual ~Socket(){};
+
     public:
 
         virtual void bind(int port);
