@@ -22,6 +22,8 @@ namespace terrisock {
 
         void getIStream();
         void getOStream();
+
+        int getNumber(){return 5;};
     };
 }
 
