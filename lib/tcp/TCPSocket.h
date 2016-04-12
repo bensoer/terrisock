@@ -5,8 +5,8 @@
 #ifndef TERRISOCK_TCPSOCKET_H
 #define TERRISOCK_TCPSOCKET_H
 
-#include "Socket.h"
-#include "SocketAddress.h"
+#include "../Socket.h"
+#include "../SocketAddress.h"
 
 namespace terrisock {
     class TCPSocket: public Socket {
