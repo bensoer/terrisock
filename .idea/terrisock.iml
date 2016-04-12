@@ -2,24 +2,24 @@
 <module type="CPP_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src/udp/UDPSocket.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/udp/UDPPacket.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/Socket.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/SocketAddress.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/inet/InetAddress4.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/inet/InetAddress.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/inet/InetAddress6.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/tcp/TCPSocket.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/tcp/TCPListenerSocket.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/headers/UDPSocket.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/headers/UDPPacket.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/headers/TCPListenerSocket.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/headers/TCPSocket.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/headers/SocketAddress.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/headers/Socket.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/headers/InetAddress4.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/headers/InetAddress.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/headers/InetAddress6.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/Socket.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/SocketAddress.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/tcp/TCPSocket.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/tcp/TCPListenerSocket.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/tcp/TCPSocket.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/tcp/TCPListenerSocket.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/inet/InetAddress.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/inet/InetAddress4.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/inet/InetAddress6.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/inet/InetAddress4.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/inet/InetAddress.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/inet/InetAddress6.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/SocketAddress.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/Socket.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/udp/UDPSocket.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/udp/UDPPacket.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/udp/UDPSocket.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/udp/UDPPacket.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/bin" />
@@ -28,28 +28,15 @@
     <orderEntry type="module-library">
       <library name="Header Search Paths">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/headers" />
           <root url="file:///usr/include" />
           <root url="file:///usr/lib/gcc/x86_64-redhat-linux/5.3.1/include" />
           <root url="file:///usr/local/include" />
         </CLASSES>
         <SOURCES>
-          <root url="file://$MODULE_DIR$/headers" />
           <root url="file:///usr/include" />
           <root url="file:///usr/lib/gcc/x86_64-redhat-linux/5.3.1/include" />
           <root url="file:///usr/local/include" />
         </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/headers/UDPSocket.h" />
-          <root url="file://$MODULE_DIR$/headers/UDPPacket.h" />
-          <root url="file://$MODULE_DIR$/headers/TCPListenerSocket.h" />
-          <root url="file://$MODULE_DIR$/headers/TCPSocket.h" />
-          <root url="file://$MODULE_DIR$/headers/SocketAddress.h" />
-          <root url="file://$MODULE_DIR$/headers/Socket.h" />
-          <root url="file://$MODULE_DIR$/headers/InetAddress4.h" />
-          <root url="file://$MODULE_DIR$/headers/InetAddress.h" />
-          <root url="file://$MODULE_DIR$/headers/InetAddress6.h" />
-        </excluded>
       </library>
     </orderEntry>
   </component>
