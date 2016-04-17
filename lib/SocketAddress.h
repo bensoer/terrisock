@@ -17,7 +17,8 @@ namespace terrisock {
 
         InetAddress* inetAddress;
         struct sockaddr_in socketAddress;
-        struct hostent* DNSResolution;
+        //struct hostent* DNSResolution;
+        struct addrinfo* DNSResolution;
 
     public:
         InetAddress* getInetAddress();

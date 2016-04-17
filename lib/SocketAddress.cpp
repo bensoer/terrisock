@@ -32,18 +32,37 @@ void SocketAddress::setPort(unsigned short port) {
 }
 
 void SocketAddress::setAddress(string address) {
+//http://stackoverflow.com/questions/11453390/setting-ipv4-ipv6-address-and-port-to-a-sockaddr-storage-structure
 
     //TODO: inet objects should be involved in this functionality. So as to assign InetAddress object something
 
-    //TODO: Implement IPv6 version of DNS resolution
-    if ((this->DNSResolution = gethostbyname(address.c_str())) == NULL)
+    //IPV4
+/*    if ((this->DNSResolution = gethostbyname(address.c_str())) == NULL)
     {
         cerr << "SocketAddress::setAddress - The DNS Resolution Could Not Resolve the Passed In Address" << endl;
         exit(1);
     }
+*/
+    struct addrinfo hints;
 
-    //TODO: Implement something more graceful. This works but is ugly
-    bcopy(this->DNSResolution->h_addr, (char *)&(this->socketAddress.sin_addr), this->DNSResolution->h_length);
+    memset(&hints, 0, sizeof(hints));
+    hints.ai_family = AF_UNSPEC;
+    hints.ai_socktype = SOCK_STREAM;
+    if(getaddrinfo(address.c_str(), NULL, &hints, &(this->DNSResolution)) != 0){
+
+        cerr << "SocketAddress::setAddress - The DNS Resolution Could Not Resolve the Passed In Address" << endl;
+        exit(1);
+    }
+
+
+    //IPV4
+    //memcpy((char *)&(this->socketAddress.sin_port), this->DNSResolution->h_addr, this->DNSResolution->h_length);
+
+    //IPVNEUTRAL
+    memcpy(&(this->socketAddress), this->DNSResolution->ai_addr, this->DNSResolution->ai_addrlen);
+
+
+    //set the intetaddress object
     //this->inetAddress->setAddress(this->socketAddress.sin_addr.s_addr);
 
 }

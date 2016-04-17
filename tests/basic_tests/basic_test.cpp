@@ -16,8 +16,18 @@ TEST(basic_check, test_eq){
     EXPECT_EQ(5,result);
 }
 
-TEST(basic_check, create_basic_client){
+TEST(basic_check, test_eq2){
+
 
     TCPSocket * socket = new TCPSocket();
+
+    SocketAddress * destination = new SocketAddress();
+    destination->setAddress("google.com");
+    //destination->setPort(80);
+    //destination->setFamily(AF_INET);
+
+    //socket->connect(*destination);
+
+    EXPECT_EQ(5,5);
 
 }
