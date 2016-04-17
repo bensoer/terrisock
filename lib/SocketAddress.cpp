@@ -33,6 +33,7 @@ void SocketAddress::setPort(unsigned short port) {
 
 void SocketAddress::setAddress(string address) {
 //http://stackoverflow.com/questions/11453390/setting-ipv4-ipv6-address-and-port-to-a-sockaddr-storage-structure
+// http://long.ccaba.upc.edu/long/045Guidelines/eva/ipv6.html
 
     //TODO: inet objects should be involved in this functionality. So as to assign InetAddress object something
 
