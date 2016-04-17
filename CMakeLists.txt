@@ -1,8 +1,16 @@
-cmake_minimum_required(VERSION 3.3)
+cmake_minimum_required(VERSION 3.0)
 project(terrisock)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-include_directories(headers)
+add_definitions(-std=gnu++0x)
 
-set(SOURCE_FILES src/Socket.cpp headers/Socket.h src/udp/UDPSocket.cpp headers/UDPSocket.h src/tcp/TCPListenerSocket.cpp headers/TCPListenerSocket.h src/tcp/TCPSocket.cpp headers/TCPSocket.h tests/main.cpp src/udp/UDPPacket.cpp headers/UDPPacket.h src/SocketAddress.cpp headers/SocketAddress.h src/inet/InetAddress.cpp headers/InetAddress.h src/inet/InetAddress4.cpp headers/InetAddress4.h src/inet/InetAddress6.cpp headers/InetAddress6.h)
-add_executable(terrisock ${SOURCE_FILES})
+#set(SOURCE_FILES lib/Socket.cpp lib/Socket.h lib/udp/UDPSocket.cpp lib/udp/UDPSocket.h lib/tcp/TCPListenerSocket.cpp lib/tcp/TCPListenerSocket.h lib/tcp/TCPSocket.cpp lib/tcp/TCPSocket.h tests/main.cpp lib/udp/UDPPacket.cpp lib/udp/UDPPacket.h lib/SocketAddress.cpp lib/SocketAddress.h lib/inet/InetAddress.cpp lib/inet/InetAddress.h lib/inet/InetAddress4.cpp lib/inet/InetAddress4.h lib/inet/InetAddress6.cpp lib/inet/InetAddress6.h)
+#add_executable(terrisock ${SOURCE_FILES})
+
+
+include_directories(lib lib/inet lib/tcp lib/udp)
+
+add_subdirectory(lib)
+add_subdirectory(tests)
+
+#target_link_libraries(terrisock lib)
