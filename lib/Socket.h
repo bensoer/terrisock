@@ -28,6 +28,10 @@ namespace terrisock {
 
         virtual void bind(int port);
 
+        virtual void shutdown() = 0;
+        virtual void shutdown(int how) = 0;
+        virtual void close() = 0;
+
     };
 }
 

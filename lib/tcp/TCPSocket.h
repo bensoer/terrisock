@@ -18,11 +18,19 @@ namespace terrisock {
         int getSocket();
 
     public:
+
+        TCPSocket();
+
         void connect(SocketAddress address);
 
         void getIStream();
         void getOStream();
 
+        void shutdown();
+        void shutdown(int how);
+        void close();
+
+        //temporary testing method
         int getNumber(){return 5;};
     };
 }
