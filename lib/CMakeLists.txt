@@ -1,0 +1,2 @@
+set(LIB_SOURCE_FILES Socket.cpp Socket.h udp/UDPSocket.cpp udp/UDPSocket.h tcp/TCPListenerSocket.cpp tcp/TCPListenerSocket.h tcp/TCPSocket.cpp tcp/TCPSocket.h udp/UDPPacket.cpp udp/UDPPacket.h SocketAddress.cpp SocketAddress.h inet/InetAddress.cpp inet/InetAddress.h inet/InetAddress4.cpp inet/InetAddress4.h inet/InetAddress6.cpp inet/InetAddress6.h)
+add_library(terrisock STATIC ${LIB_SOURCE_FILES})
