@@ -5,13 +5,19 @@
 #include "gtest/gtest.h"
 #include "TCPSocket.h"
 
-
+using namespace terrisock;
 
 TEST(basic_check, test_eq){
 
-    terrisock::TCPSocket * socket = new terrisock::TCPSocket();
+    TCPSocket * socket = new TCPSocket();
 
     int result = socket->getNumber();
 
     EXPECT_EQ(5,result);
+}
+
+TEST(basic_check, create_basic_client){
+
+    TCPSocket * socket = new TCPSocket();
+
 }

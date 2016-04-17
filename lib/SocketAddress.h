@@ -21,6 +21,7 @@ namespace terrisock {
 
     public:
         InetAddress* getInetAddress();
+        sockaddr* getSocketAddress();
         unsigned short getPort();
 
 
