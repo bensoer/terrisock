@@ -15,6 +15,10 @@ SocketAddress::~SocketAddress() {
     freeaddrinfo(this->DNSResolution);
 }
 
+SocketAddress::SocketAddress() {
+
+}
+
 SocketAddress::SocketAddress(string address, unsigned short port) {
 
 
