@@ -16,17 +16,27 @@ TEST(basic_check, test_eq){
     EXPECT_EQ(5,result);
 }
 
-TEST(basic_check, test_eq2){
+TEST(basic_check, test_google_domain){
 
 
     TCPSocket * socket = new TCPSocket();
 
-    SocketAddress * destination = new SocketAddress();
-    destination->setAddress("google.com");
-    //destination->setPort(80);
-    //destination->setFamily(AF_INET);
+    SocketAddress * destination = new SocketAddress("google.com", 80);
 
-    //socket->connect(*destination);
+    socket->connect(*destination);
+
+    EXPECT_EQ(5,5);
+
+}
+
+TEST(basic_check, test_google_num){
+
+
+    TCPSocket * socket = new TCPSocket();
+
+    SocketAddress * destination = new SocketAddress("216.58.216.142", 80);
+
+    socket->connect(*destination);
 
     EXPECT_EQ(5,5);
 
