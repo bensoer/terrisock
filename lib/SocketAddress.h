@@ -16,24 +16,28 @@ namespace terrisock {
     private:
 
         InetAddress* inetAddress;
-        struct sockaddr_in socketAddress;
+
+        //struct sockaddr_in socketAddress;
+        struct sockaddr socketAddress;
+        //struct sockaddr_storage socketAddress;
         //struct hostent* DNSResolution;
+
         struct addrinfo* DNSResolution;
 
     public:
+
+        SocketAddress(string address, unsigned short port);
+
         InetAddress* getInetAddress();
         sockaddr* getSocketAddress();
-        unsigned short getPort();
+
+        int getFamily();
+        int getSocketType();
+
+        socklen_t getSocketAddressLength();
 
 
-
-        void setFamily(short family);
-        void setPort(unsigned short port);
-
-        void setAddress(string address);
-
-        //TODO: research into sockaddr_in structure and purpose of sin_zero attribute
-        void setZero();
+        ~SocketAddress();
 
     };
 }

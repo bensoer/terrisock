@@ -14,7 +14,7 @@ namespace terrisock {
     private:
         int socketSession;
 
-        SocketAddress client;
+        //SocketAddress client;
 
     protected:
 

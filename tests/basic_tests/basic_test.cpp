@@ -21,12 +21,9 @@ TEST(basic_check, test_eq2){
 
     TCPSocket * socket = new TCPSocket();
 
-    SocketAddress * destination = new SocketAddress();
-    destination->setAddress("google.com");
-    //destination->setPort(80);
-    //destination->setFamily(AF_INET);
+    SocketAddress * destination = new SocketAddress("google.com", 80);
 
-    //socket->connect(*destination);
+    socket->connect(*destination);
 
     EXPECT_EQ(5,5);
 

@@ -37,7 +37,7 @@ void TCPSocket::getOStream() {
 
 void TCPSocket::connect(SocketAddress address){
 
-    if(::connect(this->socket, address.getSocketAddress(), sizeof(this->socket)) == -1){
+    if(::connect(this->socket, address.getSocketAddress() , address.getSocketAddressLength()) == -1){
         cerr << "TCPSocket::connect - Failed To Connect To Server" << endl;
         perror("TCPSocket::connect - ");
         exit(1);

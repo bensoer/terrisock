@@ -23,11 +23,11 @@ TCPListenerSocket::TCPListenerSocket() {
 
 void TCPListenerSocket::accept() {
 
-    socklen_t client_len = sizeof(this->client.getSocketAddress());
+    /*socklen_t client_len = sizeof(this->client.getSocketAddress());
     if((this->socketSession = ::accept(this->socket, this->client.getSocketAddress(), &client_len)) == -1){
         cerr << "TCPListenerSocket::accept - Failed To Accept Connection" << endl;
         exit(1);
-    }
+    }*/
 
 }
 
