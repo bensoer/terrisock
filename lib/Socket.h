@@ -19,10 +19,11 @@ namespace terrisock {
     protected:
         int socket = INT_MAX;
 
+
+        int type = AF_INET;
+
         virtual void setSocket(int socket) = 0;
         virtual int getSocket() = 0;
-
-        virtual ~Socket(){};
 
     public:
 

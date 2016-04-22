@@ -14,7 +14,7 @@ namespace terrisock {
     private:
         int socketSession;
 
-        SocketAddress client;
+        SocketAddress * client = nullptr;
 
     protected:
 
@@ -25,12 +25,16 @@ namespace terrisock {
     public:
 
         TCPListenerSocket();
+        TCPListenerSocket(int socket);
+
+        ~TCPListenerSocket();
+
 
         void shutdown();
         void shutdown(int how);
         void close();
 
-        void accept();
+        void accept(bool exitOnFail = false);
         void listen(int maxRequestQueue);
     };
 }

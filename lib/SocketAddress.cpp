@@ -19,6 +19,13 @@ SocketAddress::SocketAddress() {
 
 }
 
+SocketAddress::SocketAddress(addrinfo address) {
+    struct addrinfo * info = new addrinfo();
+    memset(info, 0, sizeof(*info)); // may cause issues if supposed ot be pointer or resolved ?
+    *info = address;
+    this->DNSResolution = info;
+}
+
 SocketAddress::SocketAddress(string address, unsigned short port) {
 
 

@@ -28,6 +28,7 @@ namespace terrisock {
 
         SocketAddress(string address, unsigned short port);
         SocketAddress();
+        SocketAddress(addrinfo address);
 
         InetAddress* getInetAddress();
         sockaddr* getSocketAddress();

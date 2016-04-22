@@ -14,6 +14,8 @@ using namespace std;
 
 void Socket::bind(int port) {
 
+    //TODO: make this ipv neutral
+
     //setup the network struct to bind to
     this->server.sin_family = AF_INET;
     this->server.sin_port = htons(port);
@@ -31,7 +33,7 @@ void Socket::bind(int port) {
         cerr << message << endl;
         exit(1);
     }else{
-        cout << "Socket::bind - Successfully Bound Port " + to_string(port) + " To Socket" << endl;
+        //cout << "Socket::bind - Successfully Bound Port " + to_string(port) + " To Socket" << endl;
     }
 }
 
