@@ -22,6 +22,11 @@ namespace terrisock {
 
         int type = AF_INET;
 
+
+        //HELPER FUNCTIONS FOR BUILDING SOCKETS WITH OPTIONS
+        //SocketOptions options;
+        //virtual void createSocket;
+
         virtual void setSocket(int socket) = 0;
         virtual int getSocket() = 0;
 
