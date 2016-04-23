@@ -25,7 +25,7 @@ namespace terrisock {
     public:
 
         TCPListenerSocket();
-        TCPListenerSocket(int socket);
+        TCPListenerSocket(int version);
 
         ~TCPListenerSocket();
 

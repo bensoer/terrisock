@@ -17,13 +17,12 @@ int TCPSocket::getSocket() {
     return this->socket;
 }
 
-TCPSocket::TCPSocket() {
-    //create a TCP socket
-    if((this->socket = ::socket(AF_INET, SOCK_STREAM, 0)) == -1){
-        cerr << "TCPSocket::createSocket - Failed To Create A Socket" << endl;
-        perror("TCPSocket::createSocket - ");
-        exit(1);
-    }
+TCPSocket::TCPSocket() : Socket(AF_INET, SOCK_STREAM) {
+
+}
+
+TCPSocket::TCPSocket(int version) : Socket(version, SOCK_STREAM){
+
 }
 
 
@@ -37,11 +36,20 @@ void TCPSocket::getOStream() {
 
 void TCPSocket::connect(SocketAddress address){
 
-    if(::connect(this->socket, address.getSocketAddress() , address.getSocketAddressLength()) == -1){
-        cerr << "TCPSocket::connect - Failed To Connect To Server" << endl;
-        perror("TCPSocket::connect - ");
-        exit(1);
-    }
+        struct sockaddr * server = address.getSocketAddress(this->family, this->type);
+        if(server == nullptr){
+            cerr << "TCPSocket::connect - An Address Does Not Exist For The Given Location. Connection Failed" << endl;
+            exit(1);
+        }else{
+
+            if(::connect(this->socket, server , address.getSocketAddressLength(this->family, this->type)) == -1){
+                cerr << "TCPSocket::connect - Failed To Connect To Server" << endl;
+                perror("TCPSocket::connect - ");
+                exit(1);
+            }
+        }
+
+
 }
 
 void TCPSocket::shutdown() {

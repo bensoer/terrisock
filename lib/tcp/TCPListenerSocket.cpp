@@ -13,23 +13,18 @@ using namespace std;
 using namespace terrisock;
 
 
-TCPListenerSocket::TCPListenerSocket() {
+TCPListenerSocket::TCPListenerSocket() : Socket(AF_INET, SOCK_STREAM) {
 
-    //create a TCP socket
-    if((this->socket = ::socket(AF_INET, SOCK_STREAM, 0)) == -1){
-        cerr << "TCPListenerSocket::createSocket - Failed To Create A Socket" << endl;
-        perror("TCPListenerSocket::createSocket - ");
-        exit(1);
-    }
+}
+
+TCPListenerSocket::TCPListenerSocket(int version) : Socket(version, SOCK_STREAM) {
+
 }
 
 TCPListenerSocket::~TCPListenerSocket(){
     delete(this->client);
 }
 
-TCPListenerSocket::TCPListenerSocket(int socket) {
-    this->socket = socket;
-}
 
 void TCPListenerSocket::accept(bool exitOnFail) {
 

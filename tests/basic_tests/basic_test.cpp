@@ -3,12 +3,13 @@
 //
 
 #include <tcp/TCPListenerSocket.h>
+#include <udp/UDPSocket.h>
 #include "gtest/gtest.h"
 #include "TCPSocket.h"
 
 using namespace terrisock;
 
-TEST(basic_check, test_eq){
+TEST(basic_check, test_tcp_eq){
 
     TCPSocket * socket = new TCPSocket();
 
@@ -17,7 +18,7 @@ TEST(basic_check, test_eq){
     EXPECT_EQ(5,result);
 }
 
-TEST(basic_check, test_clnt_google_domain){
+TEST(basic_check, test_tcp_clnt_google_domain){
 
 
     TCPSocket * socket = new TCPSocket();
@@ -30,7 +31,7 @@ TEST(basic_check, test_clnt_google_domain){
 
 }
 
-TEST(basic_check, test_clnt_google_num){
+TEST(basic_check, test_tcp_clnt_google_num){
 
 
     TCPSocket * socket = new TCPSocket();
@@ -43,7 +44,43 @@ TEST(basic_check, test_clnt_google_num){
 
 }
 
-TEST(basic_check, test_srvr){
+TEST(basic_check, test_tcp_eq_ipv6){
+
+    TCPSocket * socket = new TCPSocket(AF_INET6);
+
+    int result = socket->getNumber();
+
+    EXPECT_EQ(5,result);
+}
+
+/*
+TEST(basic_check, test_clnt_google_domain_ipv6){
+
+
+    TCPSocket * socket = new TCPSocket(AF_INET6);
+
+    SocketAddress * destination = new SocketAddress("google.com", 80);
+
+    socket->connect(*destination);
+
+    EXPECT_EQ(5,5);
+
+}
+
+TEST(basic_check, test_clnt_google_num_ipv6){
+
+
+    TCPSocket * socket = new TCPSocket(AF_INET6);
+
+    SocketAddress * destination = new SocketAddress("216.58.216.142", 80);
+
+    socket->connect(*destination);
+
+    EXPECT_EQ(5,5);
+
+}
+*/
+TEST(basic_check, test_tcp_srvr){
 
 
     TCPListenerSocket * server = new TCPListenerSocket();
@@ -53,4 +90,9 @@ TEST(basic_check, test_srvr){
 
     EXPECT_EQ(5,5);
 
+}
+
+TEST(basic_check, test_udp_clnt_google_num){
+
+    UDPSocket * client = new UDPSocket();
 }

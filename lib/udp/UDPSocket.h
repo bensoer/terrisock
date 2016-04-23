@@ -12,6 +12,7 @@ namespace terrisock {
 
     public:
         UDPSocket();
+        UDPSocket(int version);
 
         int getSocket();
         void setSocket(int socket);

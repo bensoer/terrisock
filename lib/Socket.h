@@ -12,7 +12,7 @@ namespace terrisock {
     class Socket {
 
     private:
-        struct sockaddr_in server;
+        //struct sockaddr_in server;
 
         bool socketIsValid();
 
@@ -20,7 +20,9 @@ namespace terrisock {
         int socket = INT_MAX;
 
 
-        int type = AF_INET;
+
+        int family;
+        int type;
 
 
         //HELPER FUNCTIONS FOR BUILDING SOCKETS WITH OPTIONS
@@ -31,6 +33,8 @@ namespace terrisock {
         virtual int getSocket() = 0;
 
     public:
+
+        Socket(int family, int type);
 
         virtual void bind(int port);
 
