@@ -24,18 +24,25 @@ namespace terrisock {
 
         struct addrinfo* DNSResolution;
 
+        addrinfo * getAddressOf(int family, int type);
+
     public:
 
         SocketAddress(string address, unsigned short port);
         SocketAddress();
+        SocketAddress(addrinfo address);
 
         InetAddress* getInetAddress();
-        sockaddr* getSocketAddress();
+
+
+        sockaddr* getSocketAddress(int family, int type);
+        socklen_t getSocketAddressLength(int family, int type);
+
 
         int getFamily();
         int getSocketType();
 
-        socklen_t getSocketAddressLength();
+
 
 
         ~SocketAddress();

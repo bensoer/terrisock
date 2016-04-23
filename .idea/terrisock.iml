@@ -10,12 +10,12 @@
       <sourceFolder url="file://$MODULE_DIR$/tests/library/gtest-1.7.0/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/library/gtest-1.7.0/cmake/internal_utils.cmake" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/Socket.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/lib/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/SocketOptions.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/SocketAddress.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/tcp/TCPSocket.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/tcp/TCPListenerSocket.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/tcp/TCPSocket.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/tcp/TCPListenerSocket.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/lib/tcp/TCPListenerSocket.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/inet/InetAddress.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/inet/InetAddress4.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/inet/InetAddress6.h" isTestSource="false" />
@@ -24,6 +24,8 @@
       <sourceFolder url="file://$MODULE_DIR$/lib/inet/InetAddress6.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/SocketAddress.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/Socket.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/SocketOptions.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/udp/UDPSocket.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/udp/UDPPacket.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/udp/UDPSocket.h" isTestSource="false" />
@@ -54,9 +56,9 @@
         </SOURCES>
         <excluded>
           <root url="file://$MODULE_DIR$/lib/tcp/TCPSocket.h" />
+          <root url="file://$MODULE_DIR$/lib/tcp/TCPListenerSocket.cpp" />
           <root url="file://$MODULE_DIR$/lib/tcp/TCPSocket.cpp" />
           <root url="file://$MODULE_DIR$/lib/tcp/TCPListenerSocket.h" />
-          <root url="file://$MODULE_DIR$/lib/tcp/TCPListenerSocket.cpp" />
           <root url="file://$MODULE_DIR$/lib/inet/InetAddress.cpp" />
           <root url="file://$MODULE_DIR$/lib/inet/InetAddress4.cpp" />
           <root url="file://$MODULE_DIR$/lib/inet/InetAddress6.h" />

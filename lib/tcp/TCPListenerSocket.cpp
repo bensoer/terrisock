@@ -6,28 +6,56 @@
 #include <stdio.h>
 #include <iostream>
 #include <unistd.h>
+#include <arpa/inet.h>
 #include "TCPListenerSocket.h"
 
 using namespace std;
 using namespace terrisock;
 
-TCPListenerSocket::TCPListenerSocket() {
 
-    //create a TCP socket
-    if((this->socket = ::socket(AF_INET, SOCK_STREAM, 0)) == -1){
-        cerr << "TCPListenerSocket::createSocket - Failed To Create A Socket" << endl;
-        perror("TCPListenerSocket::createSocket - ");
-        exit(1);
-    }
+TCPListenerSocket::TCPListenerSocket() : Socket(AF_INET, SOCK_STREAM) {
+
 }
 
-void TCPListenerSocket::accept() {
-    //TODO: Use of client created by this accept will likely break. Need better solution for SocketAddress
+TCPListenerSocket::TCPListenerSocket(int version) : Socket(version, SOCK_STREAM) {
 
-    socklen_t client_len = this->client.getSocketAddressLength();
-    if((this->socketSession = ::accept(this->socket, this->client.getSocketAddress(), &client_len)) == -1){
+}
+
+TCPListenerSocket::~TCPListenerSocket(){
+    delete(this->client);
+}
+
+
+void TCPListenerSocket::accept(bool exitOnFail) {
+
+    struct sockaddr * client;
+    socklen_t client_len = sizeof(*client);
+
+    if((this->socketSession = ::accept(this->socket, client, &client_len)) == -1){
         cerr << "TCPListenerSocket::accept - Failed To Accept Connection" << endl;
-        //exit(1);
+        if(exitOnFail){
+            exit(1);
+        }
+    }
+
+    //create a SocketAddress object with client information
+    if(client->sa_family = AF_INET){
+        //this is an inet4 address
+
+        struct sockaddr_in * client4 = (struct sockaddr_in *)client;
+
+        //using inet_nto for backwards compatability on old systems only using IPv4
+        this->client = new SocketAddress(inet_ntoa(client4->sin_addr), client4->sin_port);
+
+    }else{
+        //this is an inet6 address
+
+        struct sockaddr_in6 * client6 = (struct sockaddr_in6 *)client;
+
+        char buffer[INET6_ADDRSTRLEN];
+        inet_ntop(AF_INET6, &(client6->sin6_addr), buffer, INET6_ADDRSTRLEN);
+        this->client = new SocketAddress(string(buffer), client6->sin6_port);
+
     }
 
 }

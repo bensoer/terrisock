@@ -5,9 +5,21 @@
 #ifndef TERRISOCK_UDPSOCKET_H
 #define TERRISOCK_UDPSOCKET_H
 
-namespace terrisock {
-    class UDPSocket {
+#include <Socket.h>
 
+namespace terrisock {
+    class UDPSocket: public Socket {
+
+    public:
+        UDPSocket();
+        UDPSocket(int version);
+
+        int getSocket();
+        void setSocket(int socket);
+
+        virtual void shutdown();
+        virtual void shutdown(int how);
+        virtual void close();
     };
 }
 

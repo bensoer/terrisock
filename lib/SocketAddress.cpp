@@ -19,6 +19,13 @@ SocketAddress::SocketAddress() {
 
 }
 
+SocketAddress::SocketAddress(addrinfo address) {
+    struct addrinfo * info = new addrinfo();
+    memset(info, 0, sizeof(*info)); // may cause issues if supposed ot be pointer or resolved ?
+    *info = address;
+    this->DNSResolution = info;
+}
+
 SocketAddress::SocketAddress(string address, unsigned short port) {
 
 
@@ -27,9 +34,9 @@ SocketAddress::SocketAddress(string address, unsigned short port) {
 
     memset(&hints, 0, sizeof(hints));
     hints.ai_family = AF_UNSPEC;
-    hints.ai_socktype = SOCK_STREAM;
+    hints.ai_socktype = 0;
     if(getaddrinfo(address.c_str(), to_string(port).c_str() , &hints, &res) != 0){
-        cerr << "SocketAddress::setAddress - The DNS Resolution Could Not Resolve the Passed In Address" << endl;
+        cerr << "SocketAddress::SocketAddress - The DNS Resolution Could Not Resolve the Passed In Address" << endl;
         exit(1);
     }
 
@@ -58,12 +65,41 @@ InetAddress* SocketAddress::getInetAddress() {
     return this->inetAddress;
 }
 
-sockaddr* SocketAddress::getSocketAddress() {
-    return this->DNSResolution->ai_addr;
+addrinfo * SocketAddress::getAddressOf(int family, int type) {
+    struct addrinfo * temp = new addrinfo();
+
+    for(temp = this->DNSResolution; temp != NULL; temp = temp->ai_next){
+
+        if(temp->ai_family == family && temp->ai_socktype == type){
+            return temp;
+        }
+
+    }
+
+    delete(temp);
+    return NULL;
 }
 
-socklen_t SocketAddress::getSocketAddressLength() {
-    return this->DNSResolution->ai_addrlen;
+sockaddr* SocketAddress::getSocketAddress(int family, int type) {
+
+    struct addrinfo * info = this->getAddressOf(family, type);
+    if(info == NULL){
+        return nullptr;
+    }else{
+        return info->ai_addr;
+    }
+
+
+}
+
+socklen_t SocketAddress::getSocketAddressLength(int family, int type) {
+
+    struct addrinfo * info = this->getAddressOf(family, type);
+    if(info == NULL){
+        return 0;
+    }else{
+        return info->ai_addrlen;
+    }
 }
 
 int SocketAddress::getFamily() {

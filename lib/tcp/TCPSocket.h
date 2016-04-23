@@ -20,6 +20,7 @@ namespace terrisock {
     public:
 
         TCPSocket();
+        TCPSocket(int version);
 
         void connect(SocketAddress address);
 
