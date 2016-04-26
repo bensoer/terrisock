@@ -12,7 +12,7 @@ namespace terrisock {
     class TCPListenerSocket: public Socket {
 
     private:
-        int socketSession;
+        int socketSession = -1;
 
         SocketAddress * client = nullptr;
 
@@ -28,6 +28,8 @@ namespace terrisock {
         TCPListenerSocket(int version);
 
         ~TCPListenerSocket();
+
+        long send(string message);
 
 
         void shutdown();

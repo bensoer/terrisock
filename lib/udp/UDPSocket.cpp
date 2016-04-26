@@ -15,6 +15,10 @@ UDPSocket::UDPSocket(int version) : Socket(version, SOCK_DGRAM){
 
 }
 
+long UDPSocket::send(string message) {
+
+}
+
 int UDPSocket::getSocket() {
     return this->socket;
 }

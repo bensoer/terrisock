@@ -7,6 +7,9 @@
 
 #include <netinet/in.h>
 #include <limits.h>
+#include <string>
+
+using namespace std;
 
 namespace terrisock {
     class Socket {
@@ -31,6 +34,8 @@ namespace terrisock {
 
         virtual void setSocket(int socket) = 0;
         virtual int getSocket() = 0;
+
+        virtual long send(string message) = 0;
 
     public:
 

@@ -33,6 +33,8 @@ namespace terrisock {
 
         //temporary testing method
         int getNumber(){return 5;};
+
+        long send(string message);
     };
 }
 

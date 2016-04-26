@@ -52,6 +52,10 @@ void TCPSocket::connect(SocketAddress address){
 
 }
 
+long TCPSocket::send(string message) {
+    return ::send(this->socket, &message, message.length(),0);
+}
+
 void TCPSocket::shutdown() {
     ::shutdown(this->socket, SHUT_RDWR);
 }

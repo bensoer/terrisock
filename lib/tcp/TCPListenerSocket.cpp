@@ -71,6 +71,15 @@ void TCPListenerSocket::listen(int maxRequestQueue) {
 
 }
 
+long TCPListenerSocket::send(string message) {
+    if(this->socketSession == -1){
+        cerr << "TCPListenerSocket::send - Cannot Send Message. A Connection Must Be Established First" << endl;
+        return 0;
+    }else{
+        return ::send(this->socketSession, &message, message.length(), 0);
+    }
+}
+
 void TCPListenerSocket::setSocket(int socket) {
     this->socket = socket;
 }

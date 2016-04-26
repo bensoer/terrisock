@@ -70,18 +70,10 @@ void Socket::bind(int port) {
             //cout << "Socket::bind - Successfully Bound Port " + to_string(port) + " To Socket" << endl;
         }
 
-
-
-
     }else{
         cerr << "Socket::bind - No Valid Family Is Set For The Socket. Bind Failed" << endl;
         exit(1);
     }
-
-
-
-
-
 }
 
 bool Socket::socketIsValid() {

@@ -17,6 +17,8 @@ namespace terrisock {
         int getSocket();
         void setSocket(int socket);
 
+        long send(string message);
+
         virtual void shutdown();
         virtual void shutdown(int how);
         virtual void close();
