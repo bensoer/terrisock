@@ -8,6 +8,7 @@
 #include <iostream>
 #include <arpa/inet.h>
 #include <string.h>
+#include <algorithm>
 #include "Socket.h"
 
 using namespace terrisock;
@@ -49,7 +50,7 @@ void Socket::bind(int port) {
             cerr << message << endl;
             exit(1);
         }else{
-            //cout << "Socket::bind - Successfully Bound Port " + to_string(port) + " To Socket" << endl;
+            //cout << "Socket::bind - Successfully Bound Port " + to_string(port) + " To Socket" << inet_ntoa(server4.sin_addr) << endl;
         }
 
     }else if(this->family == AF_INET6){
@@ -74,6 +75,38 @@ void Socket::bind(int port) {
         cerr << "Socket::bind - No Valid Family Is Set For The Socket. Bind Failed" << endl;
         exit(1);
     }
+}
+
+string Socket::cleanMessage(string message) {
+
+    string finalString;
+
+    for_each(message.begin(), message.end(), [&finalString](char character){
+
+        if(strcmp(&character, "{")==0){
+
+            finalString.push_back('\\');
+            finalString.push_back(character);
+
+        }else if(strcmp(&character, "}")==0){
+
+            finalString.push_back('\\');
+            finalString.push_back(character);
+
+        }else if(strcmp(&character, "\\")==0){
+
+            finalString.push_back('\\');
+            finalString.push_back(character);
+
+        }else{
+
+            finalString += character;
+        }
+
+    });
+
+    return finalString;
+
 }
 
 bool Socket::socketIsValid() {

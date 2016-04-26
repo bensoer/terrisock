@@ -42,6 +42,7 @@ namespace terrisock {
         Socket(int family, int type);
 
         virtual void bind(int port);
+        virtual string cleanMessage(string message);
 
         virtual void shutdown() = 0;
         virtual void shutdown(int how) = 0;

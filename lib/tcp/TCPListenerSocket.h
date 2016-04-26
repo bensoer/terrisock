@@ -30,6 +30,7 @@ namespace terrisock {
         ~TCPListenerSocket();
 
         long send(string message);
+        long recv(string * messageBuffer);
 
 
         void shutdown();

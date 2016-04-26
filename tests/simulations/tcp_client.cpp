@@ -18,6 +18,18 @@ int main(){
 
     socket->connect(*address);
 
+    cout << "Sending Greeting" << endl;
+    long bytesSent = socket->send("{He}}llo Wor\\ld!}");
+
+    cout << "Bytes sent: " << to_string(bytesSent) << endl;
+
+    //socket->shutdown();
+    socket->close();
+
+    //delete(address);
+    delete(socket);
+
+
 
     return 0;
 
