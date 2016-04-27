@@ -36,9 +36,9 @@ void TCPSocket::getOStream() {
 
 }
 
-void TCPSocket::connect(SocketAddress address){
+void TCPSocket::connect(SocketAddress * address){
 
-        struct sockaddr * server = address.getSocketAddress(this->family, this->type);
+        struct sockaddr * server = address->getSocketAddress(this->family, this->type);
 
         //struct sockaddr_in * server4 = (sockaddr_in *)server;
 
@@ -49,7 +49,7 @@ void TCPSocket::connect(SocketAddress address){
             exit(1);
         }else{
 
-            if(::connect(this->socket, server , address.getSocketAddressLength(this->family, this->type)) == -1){
+            if(::connect(this->socket, server , address->getSocketAddressLength(this->family, this->type)) == -1){
                 cerr << "TCPSocket::connect - Failed To Connect To Server" << endl;
                 perror("TCPSocket::connect - ");
                 exit(1);

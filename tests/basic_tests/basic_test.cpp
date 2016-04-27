@@ -25,7 +25,7 @@ TEST(basic_check, test_tcp_clnt_google_domain){
 
     SocketAddress * destination = new SocketAddress("google.com", 80);
 
-    socket->connect(*destination);
+    socket->connect(destination);
 
     EXPECT_EQ(5,5);
 
@@ -38,7 +38,7 @@ TEST(basic_check, test_tcp_clnt_google_num){
 
     SocketAddress * destination = new SocketAddress("216.58.216.142", 80);
 
-    socket->connect(*destination);
+    socket->connect(destination);
 
     EXPECT_EQ(5,5);
 

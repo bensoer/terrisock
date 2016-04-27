@@ -16,17 +16,17 @@ int main(){
 
     SocketAddress * address = new SocketAddress("localhost", 8001);
 
-    socket->connect(*address);
+    socket->connect(address);
 
     cout << "Sending Greeting" << endl;
-    long bytesSent = socket->send("{He}}llo Wor\\ld!}");
+    long bytesSent = socket->send("{He}}llo Wor\\\\ld!}");
 
     cout << "Bytes sent: " << to_string(bytesSent) << endl;
 
-    //socket->shutdown();
+    socket->shutdown();
     socket->close();
 
-    //delete(address);
+    delete(address);
     delete(socket);
 
 
