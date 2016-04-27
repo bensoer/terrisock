@@ -17,7 +17,7 @@ monitoring, SSL and the many socket customization options available through `fct
 in a clean and simple object-oriented fashion. Network programming has never been so easy!
 
 #Development Notes
-_Dec 15/2015_ - Currently the project is in massive development and is not functional
+_Dec 15/2015_ - Currently the project is in massive development and is not functional <br>
 _Apr 26/2016_ - The project is still in large development stages. But a release with basic functionality is coming soon!
 
 #Setup
