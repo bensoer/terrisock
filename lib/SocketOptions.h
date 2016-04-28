@@ -19,6 +19,9 @@ namespace terrisock {
         static bool setAddressReusable(Socket * socket);
         static bool getReuseAddressState(Socket * socket);
 
+        static bool setPortReusable(Socket * socket);
+        static bool getReusePortState(Socket * socket);
+
         static bool setOutOfBandDataInline(Socket * socket);
         static bool getOutOfBandDataInlineState(Socket * socket);
 

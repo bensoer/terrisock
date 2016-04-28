@@ -8,6 +8,10 @@
 namespace terrisock {
     class UDPPacket {
 
+    private:
+
+
+
     };
 }
 

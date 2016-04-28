@@ -34,6 +34,31 @@ bool SocketOptions::getReuseAddressState(Socket *socket) {
 
 }
 
+bool SocketOptions::setPortReusable(Socket *socket) {
+
+    int arg = 1;
+    if(setsockopt(socket->getSocket(),SOL_SOCKET, SO_REUSEPORT, &arg, sizeof(arg)) == -1){
+        return false;
+    }else{
+        return true;
+    }
+}
+
+bool SocketOptions::getReusePortState(Socket *socket) {
+
+    int result;
+    socklen_t resultsize = sizeof(result);
+    if(getsockopt(socket->getSocket(), SOL_SOCKET, SO_REUSEPORT, &result, &resultsize) == -1){
+        cerr << "SocketOptions::getReuseAddressState - There Was An Error Fetching The Socket Option State" << endl;
+    }
+
+    if(result == 1){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 bool SocketOptions::setOutOfBandDataInline(Socket *socket) {
 
 
