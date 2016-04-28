@@ -5,7 +5,11 @@
 #include <unistd.h>
 #include <ostream>
 #include <iostream>
+#include <arpa/inet.h>
+#include <SocketOptions.h>
+#include <string.h>
 #include "UDPSocket.h"
+#include <algorithm>
 
 using namespace terrisock;
 
@@ -43,7 +47,7 @@ long UDPSocket::sendto(string message, SocketAddress *address) {
         string * fullMessage = new string("{" + cleanedMessage + "}");
         long bytesSent = ::sendto(this->socket, fullMessage->c_str(), fullMessage->length(), 0, server, sizeof(*server));
         delete(fullMessage);
-        delete(server);
+        //delete(server);
         return bytesSent;
 
     }
@@ -52,72 +56,41 @@ long UDPSocket::sendto(string message, SocketAddress *address) {
 
 long UDPSocket::recv(string *messageBuffer) {
 
-
-    const int BUFFERSIZE = 2;
-    string * totalMessage = messageBuffer;
-    long totalBytes = 0;
-
-    bool acceptNextLetter = false;
-
+    const int BUFFERSIZE = SocketOptions::getReceiveBufferSize(this);
     struct sockaddr messageSource;
     socklen_t messageSourceSize = sizeof(messageSource);
 
-    while(1){
+    char inbuf[BUFFERSIZE];
+    long bytesRead = ::recvfrom(this->socket, inbuf, BUFFERSIZE-1, 0, &messageSource, &messageSourceSize);
 
-        char inbuf[BUFFERSIZE];
-        long bytesRead = ::recvfrom(this->socket, inbuf, BUFFERSIZE-1, 0, &messageSource, &messageSourceSize);
+    string content(inbuf);
+    long contentLength = content.length();
+    bool acceptCharacter = false;
+    for_each(content.begin(), content.end(), [&acceptCharacter, &messageBuffer, &contentLength](char character){
 
-        if(bytesRead <= 0){
-            //here we assume the conneciton has terminated. Return the total bytes
-            return totalBytes;
+        if(acceptCharacter){
+            messageBuffer->push_back(character);
+            acceptCharacter = false;
         }else{
-            inbuf[BUFFERSIZE-1] = '\0';
 
-            string segment(inbuf);
+            char slash = '\\';
+            char openBrace = '{';
+            char closeBrace = '}';
 
-            //cout << "Got segment: >" << segment << "<" << endl;
-
-            //means an escape character was found. blindly accept the next character
-            if(acceptNextLetter){
-
-                totalBytes += bytesRead;
-                (*totalMessage) += segment;
-                acceptNextLetter = false; //revert back to normal for everything else
-
+            if(character == slash){
+                acceptCharacter = true;
+                contentLength--;
+            }else if(character == openBrace){
+                contentLength--;
+            }else if(character == closeBrace){
+                contentLength--;
             }else{
-
-                if(segment.compare("{") == 0){
-                    //this is our extras, we don't want to include it
-                    continue;
-
-                }else if(segment.compare("}") == 0){
-                    //here we assume the end of a message has arrived. Return the total bytes
-
-                    return totalBytes;
-                }else{
-
-                    //this is a valid character. Unless it is an escape character
-
-                    if(segment.compare("\\") == 0){
-                        //an escape character was found, blindly accept the next character and do nothing with this
-                        //escape character
-                        //cout << "FOUND AN ESCAPE CHARACTER" << endl;
-                        acceptNextLetter = true;
-                        continue;
-                    }else{
-                        //not an escaped character, and not an opening or closing character, added it.
-                        totalBytes += bytesRead;
-                        (*totalMessage) += segment;
-                    }
-
-                }
-
+                messageBuffer->push_back(character);
             }
-
         }
+    });
 
-    }
-
+    return contentLength;
 }
 
 void UDPSocket::connect(SocketAddress *address) {
@@ -126,6 +99,10 @@ void UDPSocket::connect(SocketAddress *address) {
     if(server == nullptr){
         cerr << "UDPSocket::connect - An Address Does Not Exist For The Given Location. Cannot Ensure Resolvable Address" << endl;
     }else{
+        cout << "Connection Successful" << endl;
+
+        struct sockaddr_in * server4 = (sockaddr_in *) server;
+        cout << inet_ntoa(server4->sin_addr ) << ":" << (int)server4->sin_port << endl ;
         this->destination = server;
     }
 }

@@ -5,6 +5,8 @@
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/options_test.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/basic_test.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/simulations/udp_client.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/simulations/udp_server.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/simulations/tcp_client.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/simulations/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/simulations/tcp_server.cpp" isTestSource="false" />

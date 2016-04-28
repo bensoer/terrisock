@@ -9,3 +9,9 @@ add_executable(sim_tcp_srvr tcp_server.cpp)
 
 target_link_libraries(sim_tcp_clnt terrisock)
 target_link_libraries(sim_tcp_srvr terrisock)
+
+add_executable(sim_udp_clnt udp_client.cpp)
+add_executable(sim_udp_srvr udp_server.cpp)
+
+target_link_libraries(sim_udp_clnt terrisock)
+target_link_libraries(sim_udp_srvr terrisock)

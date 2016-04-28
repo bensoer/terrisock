@@ -7,6 +7,7 @@
 #include <netdb.h>
 #include <string.h>
 #include <iostream>
+#include <arpa/inet.h>
 #include "SocketAddress.h"
 
 using namespace terrisock;
@@ -35,6 +36,7 @@ SocketAddress::SocketAddress(string address, unsigned short port) {
     memset(&hints, 0, sizeof(hints));
     hints.ai_family = AF_UNSPEC;
     hints.ai_socktype = 0;
+    hints.ai_flags = AI_NUMERICSERV;
     if(getaddrinfo(address.c_str(), to_string(port).c_str() , &hints, &res) != 0){
         cerr << "SocketAddress::SocketAddress - The DNS Resolution Could Not Resolve the Passed In Address" << endl;
         exit(1);
@@ -71,6 +73,10 @@ addrinfo * SocketAddress::getAddressOf(int family, int type) {
     for(temp = this->DNSResolution; temp != NULL; temp = temp->ai_next){
 
         if(temp->ai_family == family && temp->ai_socktype == type){
+
+            //cout << "Found Match:" << endl;
+            //struct sockaddr_in * addr4 = (sockaddr_in*)temp->ai_addr;
+            //cout << inet_ntoa(addr4->sin_addr) << ":" << to_string(ntohs(addr4->sin_port)) << endl;
             return temp;
         }
 
