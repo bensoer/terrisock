@@ -22,7 +22,7 @@ namespace terrisock {
         TCPSocket();
         TCPSocket(int version);
 
-        void connect(SocketAddress address);
+        void connect(SocketAddress * address);
 
         void getIStream();
         void getOStream();
@@ -33,6 +33,8 @@ namespace terrisock {
 
         //temporary testing method
         int getNumber(){return 5;};
+
+        long send(string message);
     };
 }
 

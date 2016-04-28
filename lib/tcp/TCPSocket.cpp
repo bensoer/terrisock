@@ -5,8 +5,10 @@
 #include <iostream>
 #include <netdb.h>
 #include <unistd.h>
+#include <arpa/inet.h>
 #include "TCPSocket.h"
 
+using namespace std;
 using namespace terrisock;
 
 void TCPSocket::setSocket(int socket) {
@@ -34,15 +36,20 @@ void TCPSocket::getOStream() {
 
 }
 
-void TCPSocket::connect(SocketAddress address){
+void TCPSocket::connect(SocketAddress * address){
 
-        struct sockaddr * server = address.getSocketAddress(this->family, this->type);
+        struct sockaddr * server = address->getSocketAddress(this->family, this->type);
+
+        //struct sockaddr_in * server4 = (sockaddr_in *)server;
+
+        //cout << " TCPSocket::connect - Connecting To: " << inet_ntoa(server4->sin_addr) << endl;
+
         if(server == nullptr){
             cerr << "TCPSocket::connect - An Address Does Not Exist For The Given Location. Connection Failed" << endl;
             exit(1);
         }else{
 
-            if(::connect(this->socket, server , address.getSocketAddressLength(this->family, this->type)) == -1){
+            if(::connect(this->socket, server , address->getSocketAddressLength(this->family, this->type)) == -1){
                 cerr << "TCPSocket::connect - Failed To Connect To Server" << endl;
                 perror("TCPSocket::connect - ");
                 exit(1);
@@ -50,6 +57,15 @@ void TCPSocket::connect(SocketAddress address){
         }
 
 
+}
+
+long TCPSocket::send(string message) {
+
+    string cleanedMessage = this->cleanMessage(message);
+    string * fullMessage = new string("{" + cleanedMessage + "}");
+    long bytesSent = ::send(this->socket, fullMessage->c_str(), fullMessage->length(), 0);
+    delete(fullMessage);
+    return bytesSent;
 }
 
 void TCPSocket::shutdown() {

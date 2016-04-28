@@ -16,6 +16,8 @@ TEST(basic_check, test_tcp_eq){
     int result = socket->getNumber();
 
     EXPECT_EQ(5,result);
+
+    delete(socket);
 }
 
 TEST(basic_check, test_tcp_clnt_google_domain){
@@ -25,9 +27,12 @@ TEST(basic_check, test_tcp_clnt_google_domain){
 
     SocketAddress * destination = new SocketAddress("google.com", 80);
 
-    socket->connect(*destination);
+    socket->connect(destination);
 
     EXPECT_EQ(5,5);
+
+    delete(destination);
+    delete(socket);
 
 }
 
@@ -38,9 +43,12 @@ TEST(basic_check, test_tcp_clnt_google_num){
 
     SocketAddress * destination = new SocketAddress("216.58.216.142", 80);
 
-    socket->connect(*destination);
+    socket->connect(destination);
 
     EXPECT_EQ(5,5);
+
+    delete(destination);
+    delete(socket);
 
 }
 
@@ -51,6 +59,8 @@ TEST(basic_check, test_tcp_eq_ipv6){
     int result = socket->getNumber();
 
     EXPECT_EQ(5,result);
+
+    delete(socket);
 }
 
 /*
@@ -90,9 +100,13 @@ TEST(basic_check, test_tcp_srvr){
 
     EXPECT_EQ(5,5);
 
+    delete(server);
+
 }
 
 TEST(basic_check, test_udp_clnt_google_num){
 
     UDPSocket * client = new UDPSocket();
+
+    delete(client);
 }
