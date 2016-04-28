@@ -5,19 +5,39 @@
 #ifndef TERRISOCK_SOCKETOPTIONS_H
 #define TERRISOCK_SOCKETOPTIONS_H
 
+#include "Socket.h"
 
-class SocketOptions {
+namespace terrisock {
+    class SocketOptions {
 
-private:
+    private:
 
-    int reuseAddr = 0;
 
-public:
 
-    void setReuseAddress(bool enable);
-    bool getReuseAddress();
+    public:
 
-};
+        static bool setAddressReusable(Socket * socket);
+        static bool getReuseAddressState(Socket * socket);
+
+        static bool setOutOfBandDataInline(Socket * socket);
+        static bool getOutOfBandDataInlineState(Socket * socket);
+
+        static bool setReceiveBufferSize(Socket * socket, int size);
+        static int getReceiveBufferSize(Socket * socket);
+
+        static bool setSendBufferSize(Socket * socket, int size);
+        static int getSendBufferSize(Socket * socket);
+
+        static bool setReceiveLowWaterMark(Socket * socket, int size);
+        static int getReceiveLowWaterMark(Socket * socket);
+
+        static bool setSendLowWaterMark(Socket * socket, int size);
+        static int getSendLowWaterMark(Socket * socket);
+
+    };
+}
+
+
 
 
 #endif //TERRISOCK_SOCKETOPTIONS_H
