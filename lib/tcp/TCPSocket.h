@@ -35,6 +35,7 @@ namespace terrisock {
         int getNumber(){return 5;};
 
         long send(string message);
+        long recv(string * message);
     };
 }
 

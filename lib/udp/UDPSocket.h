@@ -25,6 +25,7 @@ namespace terrisock {
 
         long send(string message);
         long recv(string * messageBuffer);
+        long recvfrom(string * messageBuffer, SocketAddress * sourceAddress);
         void connect(SocketAddress * address);
 
         long sendto(string message, SocketAddress * address);

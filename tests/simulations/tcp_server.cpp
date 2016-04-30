@@ -26,5 +26,9 @@ int main(){
     cout << "Data Recieved" << endl;
     cout << (*message) << endl;
 
+    cout << "Now Responding" << endl;
+
+    server->send("Hello Back Mr. Client!");
+
     return 0;
 }

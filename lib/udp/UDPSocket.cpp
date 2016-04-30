@@ -54,14 +54,18 @@ long UDPSocket::sendto(string message, SocketAddress *address) {
 
 }
 
-long UDPSocket::recv(string *messageBuffer) {
+long UDPSocket::recvfrom(string *messageBuffer, SocketAddress *sourceAddress) {
 
     const int BUFFERSIZE = SocketOptions::getReceiveBufferSize(this);
     struct sockaddr messageSource;
     socklen_t messageSourceSize = sizeof(messageSource);
 
     char inbuf[BUFFERSIZE];
+
     long bytesRead = ::recvfrom(this->socket, inbuf, BUFFERSIZE-1, 0, &messageSource, &messageSourceSize);
+    //remove whatever they sent, we need to reconstruct one
+    delete(sourceAddress);
+    sourceAddress = new SocketAddress(&messageSource);
 
     string content(inbuf);
     long contentLength = content.length();
@@ -93,16 +97,24 @@ long UDPSocket::recv(string *messageBuffer) {
     return contentLength;
 }
 
+long UDPSocket::recv(string *messageBuffer) {
+
+    SocketAddress * sourceAddress = new SocketAddress();
+    long bytesReceived =  this->recvfrom(messageBuffer, sourceAddress);
+    delete(sourceAddress);
+    return bytesReceived;
+}
+
 void UDPSocket::connect(SocketAddress *address) {
 
     struct sockaddr * server = address->getSocketAddress(this->family, this->type);
     if(server == nullptr){
         cerr << "UDPSocket::connect - An Address Does Not Exist For The Given Location. Cannot Ensure Resolvable Address" << endl;
     }else{
-        cout << "Connection Successful" << endl;
+        //cout << "Connection Successful" << endl;
 
-        struct sockaddr_in * server4 = (sockaddr_in *) server;
-        cout << inet_ntoa(server4->sin_addr ) << ":" << (int)server4->sin_port << endl ;
+        //struct sockaddr_in * server4 = (sockaddr_in *) server;
+        //cout << inet_ntoa(server4->sin_addr ) << ":" << (int)server4->sin_port << endl ;
         this->destination = server;
     }
 }

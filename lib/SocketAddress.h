@@ -15,6 +15,8 @@ namespace terrisock {
 
     private:
 
+        void resolveAndInit(string address, unsigned short port);
+
         InetAddress* inetAddress;
 
         //struct sockaddr_in socketAddress;
@@ -22,7 +24,7 @@ namespace terrisock {
         //struct sockaddr_storage socketAddress;
         //struct hostent* DNSResolution;
 
-        struct addrinfo* DNSResolution;
+        struct addrinfo* DNSResolution = nullptr;
 
         addrinfo * getAddressOf(int family, int type);
 
@@ -31,6 +33,7 @@ namespace terrisock {
         SocketAddress(string address, unsigned short port);
         SocketAddress();
         SocketAddress(addrinfo address);
+        SocketAddress(sockaddr * address);
 
         InetAddress* getInetAddress();
 

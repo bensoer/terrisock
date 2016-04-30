@@ -23,10 +23,19 @@ int main(){
     cout << "Hanging on recv" << endl;
 
     string * message = new string();
-    long bytesRecieved = server->recv(message);
+    SocketAddress * source = new SocketAddress();
+
+
+    long bytesRecieved = server->recvfrom(message, source);
 
     cout << "Bytes Received: " << to_string(bytesRecieved) << endl;
     cout << "Mesage Received: >" << (*message) << "<" << endl;
+
+    cout << "Now Responding" << endl;
+
+    long bytesSent = server->sendto("Hello Back UDP Client!", source);
+
+    cout << "Bytes Sent: " << to_string(bytesSent) << endl;
 
 
 

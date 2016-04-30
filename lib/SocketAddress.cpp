@@ -13,7 +13,10 @@
 using namespace terrisock;
 
 SocketAddress::~SocketAddress() {
-    freeaddrinfo(this->DNSResolution);
+    if(this->DNSResolution != nullptr){
+        freeaddrinfo(this->DNSResolution);
+        this->DNSResolution = nullptr;
+    }
 }
 
 SocketAddress::SocketAddress() {
@@ -27,8 +30,35 @@ SocketAddress::SocketAddress(addrinfo address) {
     this->DNSResolution = info;
 }
 
-SocketAddress::SocketAddress(string address, unsigned short port) {
+SocketAddress::SocketAddress(sockaddr *address) {
 
+    if(address->sa_family == AF_INET){
+
+        struct sockaddr_in *address4 = (struct sockaddr_in*)address;
+
+        string strAddress = inet_ntoa(address4->sin_addr);
+        unsigned short port = ntohs(address4->sin_port);
+
+        this->resolveAndInit(strAddress, port);
+
+    }else if(address->sa_family == AF_INET6){
+
+        struct sockaddr_in6 *address6 = (struct sockaddr_in6*)address;
+
+        char buffer[INET6_ADDRSTRLEN];
+        inet_ntop(AF_INET6, &(address6->sin6_addr), buffer, INET6_ADDRSTRLEN);
+        this->resolveAndInit(string(buffer), ntohs(address6->sin6_port));
+
+    }else{
+        cerr << "SocketAddress:SocketAddress - Invalid sockaddr passed. Can't resolve as IPv4 or IPv6" << endl;
+    }
+}
+
+SocketAddress::SocketAddress(string address, unsigned short port) {
+    this->resolveAndInit(address, port);
+}
+
+void SocketAddress::resolveAndInit(string address, unsigned short port) {
 
     struct addrinfo hints;
     struct addrinfo * res;
