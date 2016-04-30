@@ -81,7 +81,7 @@ void SocketAddress::resolveAndInit(string address, unsigned short port) {
     this->DNSResolution = res;
 
     //copy address to the socket address
-    memcpy(&(this->socketAddress), res->ai_addr, res->ai_addrlen);
+   // memcpy(&(this->socketAddress), res->ai_addr, res->ai_addrlen);
 
 
     //freeaddrinfo(res);
@@ -91,10 +91,6 @@ void SocketAddress::resolveAndInit(string address, unsigned short port) {
 
     //set the intetaddress object
     //this->inetAddress->setAddress(this->socketAddress.sin_addr.s_addr);
-}
-
-InetAddress* SocketAddress::getInetAddress() {
-    return this->inetAddress;
 }
 
 addrinfo * SocketAddress::getAddressOf(int family, int type) {
@@ -136,14 +132,6 @@ socklen_t SocketAddress::getSocketAddressLength(int family, int type) {
     }else{
         return info->ai_addrlen;
     }
-}
-
-int SocketAddress::getFamily() {
-    return this->DNSResolution->ai_family;
-}
-
-int SocketAddress::getSocketType() {
-    return this->DNSResolution->ai_socktype;
 }
 
 
