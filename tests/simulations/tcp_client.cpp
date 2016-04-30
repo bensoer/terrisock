@@ -23,6 +23,12 @@ int main(){
 
     cout << "Bytes sent: " << to_string(bytesSent) << endl;
 
+    string * response = new string();
+    long bytesRecvd = socket->recv(response);
+
+    cout << "Bytes Recieved: " << to_string(bytesRecvd) << endl;
+    cout << "Response: >" << *response << "<" << endl;
+
     socket->shutdown();
     socket->close();
 

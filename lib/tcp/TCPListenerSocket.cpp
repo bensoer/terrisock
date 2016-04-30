@@ -39,24 +39,8 @@ void TCPListenerSocket::accept(bool exitOnFail) {
     }
 
     //create a SocketAddress object with client information
-    if(client->sa_family = AF_INET){
-        //this is an inet4 address
-
-        struct sockaddr_in * client4 = (struct sockaddr_in *)client;
-
-        //using inet_nto for backwards compatability on old systems only using IPv4
-        this->client = new SocketAddress(inet_ntoa(client4->sin_addr), client4->sin_port);
-
-    }else{
-        //this is an inet6 address
-
-        struct sockaddr_in6 * client6 = (struct sockaddr_in6 *)client;
-
-        char buffer[INET6_ADDRSTRLEN];
-        inet_ntop(AF_INET6, &(client6->sin6_addr), buffer, INET6_ADDRSTRLEN);
-        this->client = new SocketAddress(string(buffer), client6->sin6_port);
-
-    }
+    this->client = new SocketAddress(client);
+    delete(client);
 
 }
 
