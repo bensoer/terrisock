@@ -30,9 +30,9 @@ namespace terrisock {
 
         long sendto(string message, SocketAddress * address);
 
-        virtual void shutdown();
-        virtual void shutdown(int how);
-        virtual void close();
+        void shutdown();
+        void shutdown(int how);
+        void close();
     };
 }
 

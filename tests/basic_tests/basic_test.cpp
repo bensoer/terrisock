@@ -9,16 +9,6 @@
 
 using namespace terrisock;
 
-TEST(basic_check, test_tcp_eq){
-
-    TCPSocket * socket = new TCPSocket();
-
-    int result = socket->getNumber();
-
-    EXPECT_EQ(5,result);
-
-    delete(socket);
-}
 
 TEST(basic_check, test_tcp_clnt_google_domain){
 
