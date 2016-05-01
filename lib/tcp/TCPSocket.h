@@ -14,25 +14,24 @@ namespace terrisock {
     private:
 
     protected:
-        void setSocket(int socket);
-        int getSocket();
+
 
     public:
+
+        void setSocket(int socket);
+        int getSocket();
 
         TCPSocket();
         TCPSocket(int version);
 
         void connect(SocketAddress * address);
 
-        void getIStream();
-        void getOStream();
+        //void getIStream();
+        //void getOStream();
 
         void shutdown();
         void shutdown(int how);
         void close();
-
-        //temporary testing method
-        int getNumber(){return 5;};
 
         long send(string message);
         long recv(string * message);

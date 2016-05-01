@@ -27,14 +27,15 @@ _Installation instructions are currently in progress_
 You will need to have `cmake` installed and available in your system path for these instructions
 
 ##Installation
-1. Clone / Download the repo
+1. Download and extract the latest version form the release page: [https://github.com/project-terris/terrisock/releases](https://github.com/project-terris/terrisock/releases)
 2. Enter the root directory of the project. Run the command `cmake CMakeLists.txt`. This will compile everything
 3. a file named `libterrisock.so` for linux or `libterrisock.dll` will be created containing the compiled library
 4. Copy the so/dll file to your own project, and include/import from there. Note you will need to specify the `terrisock`
 namespace to use the library. See the examples below for more details
 
 ##Examples
-
+Below contains some simple minimal examples on using terrisock. For examples of advanced features available in terrisock,
+see the Wiki page at: [https://github.com/project-terris/terrisock/wiki](https://github.com/project-terris/terrisock/wiki)
 
 ###Basic TCP Client
 Make a basic TCP Client !
@@ -177,6 +178,59 @@ means functionality such as closing and shutting down connections is still avail
     
         delete(address);
         delete(socket);
+    
+        return 0;
+    }
+```
+
+###Basic UDP Client
+Below sets up a basic UDP socket. With UDP being connectionless, you need to pass the address with every sendto request.
+Additionally, terrisock contains functionality to give a _connection-oriented like_ api. This is implemented simply with
+the `connect(SocketAddress * address)` call which simply stores the passed `SocketAddress` for you and adds it during 
+calls made with `send()`. Further examples of this functionality can be found in the Wiki
+```cpp
+
+    #include <SocketAddress.h>
+    #include <udp/UDPSocket.h>
+    
+    using namespace terrisock;
+    
+    int main(){
+    
+        UDPSocket * socket = new UDPSocket();
+    
+        SocketAddress * address = new SocketAddress("localhost", 8001);
+    
+        socket->sendto("Hello World!", address);
+       
+    
+        return 0;
+    
+    }
+```
+
+###Basic UDP Server
+Below is a basic UDP Server. Again because UDP is connecitonless, a SocketAddress needs to be passed to the `recvfrom()`
+and `sendto()` methods. For any UDP socket to be able to receive data aswell, it needs to make a call to the `bind()` method
+otherwise the socket will be unable to determine where to listen for incoming data.
+```cpp
+
+    #include <SocketAddress.h>
+    #include <udp/UDPSocket.h>
+    
+    using namespace terrisock;
+    
+    int main(){
+    
+        UDPSocket * server = new UDPSocket();
+        server->bind(8001);
+    
+        string * message = new string();
+        SocketAddress * source = new SocketAddress();
+    
+        long bytesRecieved = server->recvfrom(message, source);
+    
+        long bytesSent = server->sendto("Hello Back UDP Client!", source);
     
         return 0;
     }

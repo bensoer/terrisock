@@ -40,6 +40,7 @@ void Socket::bind(int port) {
 
         struct sockaddr_in server4;
 
+        memset(&server4, 0, sizeof(server4));
         server4.sin_family = AF_INET;
         server4.sin_port = htons(port);
         server4.sin_addr.s_addr = htonl(INADDR_ANY);
