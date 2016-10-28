@@ -5,9 +5,18 @@
 #ifndef TERRISOCK_UDPSOCKET_H
 #define TERRISOCK_UDPSOCKET_H
 
+#include <unistd.h>
+#include <ostream>
+#include <iostream>
+#include <arpa/inet.h>
+#include <string.h>
+#include <algorithm>
+
+
 #include <Socket.h>
 #include <SocketAddress.h>
-#include "UDPPacket.h"
+#include <SocketOptions.h>
+#include <UDPPacket.h>
 
 namespace terrisock {
     class UDPSocket: public Socket {

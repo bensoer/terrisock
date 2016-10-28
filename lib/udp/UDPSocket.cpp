@@ -2,14 +2,7 @@
 // Created by bensoer on 19/12/15.
 //
 
-#include <unistd.h>
-#include <ostream>
-#include <iostream>
-#include <arpa/inet.h>
-#include <SocketOptions.h>
-#include <string.h>
 #include "UDPSocket.h"
-#include <algorithm>
 
 using namespace terrisock;
 

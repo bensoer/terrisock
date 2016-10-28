@@ -2,11 +2,6 @@
 // Created by bensoer on 19/12/15.
 //
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <iostream>
-#include <unistd.h>
-#include <arpa/inet.h>
 #include "TCPListenerSocket.h"
 
 using namespace std;

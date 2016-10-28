@@ -5,6 +5,12 @@
 #ifndef TERRISOCK_TCPLISTENERSOCKET_H
 #define TERRISOCK_TCPLISTENERSOCKET_H
 
+#include <cstdlib>
+#include <stdio.h>
+#include <iostream>
+#include <unistd.h>
+#include <arpa/inet.h>
+
 #include <Socket.h>
 #include <SocketAddress.h>
 

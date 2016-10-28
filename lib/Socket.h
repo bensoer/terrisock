@@ -8,6 +8,13 @@
 #include <netinet/in.h>
 #include <limits.h>
 #include <string>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <cstdlib>
+#include <iostream>
+#include <arpa/inet.h>
+#include <string.h>
+#include <algorithm>
 
 using namespace std;
 

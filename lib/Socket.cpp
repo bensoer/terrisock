@@ -2,13 +2,6 @@
 // Created by bensoer on 19/12/15.
 //
 
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <stdlib.h>
-#include <iostream>
-#include <arpa/inet.h>
-#include <string.h>
-#include <algorithm>
 #include "Socket.h"
 
 using namespace terrisock;

@@ -3,7 +3,7 @@
 //
 
 #include "SocketOptions.h"
-#include <iostream>
+
 
 using namespace std;
 using namespace terrisock;

@@ -1,13 +1,6 @@
 //
 // Created by bensoer on 20/12/15.
 //
-
-#include <netinet/in.h>
-#include <ostream>
-#include <netdb.h>
-#include <string.h>
-#include <iostream>
-#include <arpa/inet.h>
 #include "SocketAddress.h"
 
 using namespace terrisock;

@@ -5,8 +5,15 @@
 #ifndef TERRISOCK_SOCKETADDRESS_H
 #define TERRISOCK_SOCKETADDRESS_H
 
-#include "InetAddress.h"
+#include <netinet/in.h>
+#include <ostream>
+#include <netdb.h>
+#include <string.h>
+#include <iostream>
+#include <arpa/inet.h>
 #include <string>
+
+#include "InetAddress.h"
 
 using namespace std;
 

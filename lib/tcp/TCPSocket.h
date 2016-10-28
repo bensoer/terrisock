@@ -9,7 +9,7 @@
 #include <netdb.h>
 #include <unistd.h>
 #include <arpa/inet.h>
-#include <stdlib.h>
+#include <cstdlib>
 
 #include "../Socket.h"
 #include "../SocketAddress.h"

@@ -5,6 +5,8 @@
 #ifndef TERRISOCK_SOCKETOPTIONS_H
 #define TERRISOCK_SOCKETOPTIONS_H
 
+#include <iostream>
+
 #include "Socket.h"
 
 namespace terrisock {
