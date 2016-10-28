@@ -37,45 +37,20 @@
       <sourceFolder url="file://$MODULE_DIR$/lib/udp/UDPSocket.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/udp/UDPPacket.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/bin" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
       <library name="Header Search Paths">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/tests/library/gtest-1.7.0/include" />
-          <root url="file://$MODULE_DIR$/lib/tcp" />
-          <root url="file://$MODULE_DIR$/lib/inet" />
-          <root url="file://$MODULE_DIR$/lib/udp" />
           <root url="file:///usr/include" />
-          <root url="file:///usr/lib/gcc/x86_64-redhat-linux/5.3.1/include" />
+          <root url="file:///usr/lib/gcc/x86_64-redhat-linux/6.2.1/include" />
           <root url="file:///usr/local/include" />
         </CLASSES>
         <SOURCES>
-          <root url="file://$MODULE_DIR$/tests/library/gtest-1.7.0/include" />
-          <root url="file://$MODULE_DIR$/lib/tcp" />
-          <root url="file://$MODULE_DIR$/lib/inet" />
-          <root url="file://$MODULE_DIR$/lib/udp" />
           <root url="file:///usr/include" />
-          <root url="file:///usr/lib/gcc/x86_64-redhat-linux/5.3.1/include" />
+          <root url="file:///usr/lib/gcc/x86_64-redhat-linux/6.2.1/include" />
           <root url="file:///usr/local/include" />
         </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/lib/tcp/TCPSocket.h" />
-          <root url="file://$MODULE_DIR$/lib/tcp/TCPListenerSocket.cpp" />
-          <root url="file://$MODULE_DIR$/lib/tcp/TCPSocket.cpp" />
-          <root url="file://$MODULE_DIR$/lib/tcp/TCPListenerSocket.h" />
-          <root url="file://$MODULE_DIR$/lib/inet/InetAddress.cpp" />
-          <root url="file://$MODULE_DIR$/lib/inet/InetAddress4.cpp" />
-          <root url="file://$MODULE_DIR$/lib/inet/InetAddress6.h" />
-          <root url="file://$MODULE_DIR$/lib/inet/InetAddress4.h" />
-          <root url="file://$MODULE_DIR$/lib/inet/InetAddress.h" />
-          <root url="file://$MODULE_DIR$/lib/inet/InetAddress6.cpp" />
-          <root url="file://$MODULE_DIR$/lib/udp/UDPSocket.cpp" />
-          <root url="file://$MODULE_DIR$/lib/udp/UDPPacket.h" />
-          <root url="file://$MODULE_DIR$/lib/udp/UDPSocket.h" />
-          <root url="file://$MODULE_DIR$/lib/udp/UDPPacket.cpp" />
-        </excluded>
       </library>
     </orderEntry>
   </component>

@@ -5,6 +5,12 @@
 #ifndef TERRISOCK_TCPSOCKET_H
 #define TERRISOCK_TCPSOCKET_H
 
+#include <iostream>
+#include <netdb.h>
+#include <unistd.h>
+#include <arpa/inet.h>
+#include <stdlib.h>
+
 #include "../Socket.h"
 #include "../SocketAddress.h"
 

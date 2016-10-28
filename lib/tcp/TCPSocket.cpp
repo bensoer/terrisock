@@ -2,10 +2,7 @@
 // Created by bensoer on 19/12/15.
 //
 
-#include <iostream>
-#include <netdb.h>
-#include <unistd.h>
-#include <arpa/inet.h>
+
 #include "TCPSocket.h"
 
 using namespace std;
@@ -24,15 +21,6 @@ TCPSocket::TCPSocket() : Socket(AF_INET, SOCK_STREAM) {
 }
 
 TCPSocket::TCPSocket(int version) : Socket(version, SOCK_STREAM){
-
-}
-
-
-void TCPSocket::getIStream() {
-
-}
-
-void TCPSocket::getOStream() {
 
 }
 
