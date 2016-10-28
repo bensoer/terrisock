@@ -2,10 +2,11 @@
 // Created by bensoer on 12/04/16.
 //
 
-#include <tcp/TCPListenerSocket.h>
-#include <udp/UDPSocket.h>
+//#include <tcp/TCPListenerSocket.h>
+//#include <udp/UDPSocket.h>
 #include "gtest/gtest.h"
-#include "TCPSocket.h"
+//#include "TCPSocket.h"
+#include "terrisock.h"
 
 using namespace terrisock;
 

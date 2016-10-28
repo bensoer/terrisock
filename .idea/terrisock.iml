@@ -17,6 +17,7 @@
       <sourceFolder url="file://$MODULE_DIR$/tests/library/gtest-1.7.0/cmake/internal_utils.cmake" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/Socket.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/SocketOptions.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/terrisock.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/SocketAddress.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/tcp/TCPSocket.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/tcp/TCPListenerSocket.cpp" isTestSource="false" />
