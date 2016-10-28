@@ -45,7 +45,7 @@ namespace terrisock {
 
     public:
 
-        Socket(int family, int type);
+        Socket(int family, int type, int protocol = IPPROTO_IP);
 
         virtual void setSocket(int socket) = 0;
         virtual int getSocket() = 0;

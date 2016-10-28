@@ -39,6 +39,9 @@ namespace terrisock {
         static bool setSendLowWaterMark(Socket * socket, int size);
         static int getSendLowWaterMark(Socket * socket);
 
+        static bool setIPHeaderIncluded(Socket * socket);
+        static int getIPHeaderIncludeState(Socket * socket);
+
     };
 }
 

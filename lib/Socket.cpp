@@ -7,12 +7,12 @@
 using namespace terrisock;
 using namespace std;
 
-Socket::Socket(int family, int type) {
+Socket::Socket(int family, int type, int protocol) {
 
     this->family = family;
     this->type = type;
 
-    if((this->socket = ::socket(family, type, 0)) == -1){
+    if((this->socket = ::socket(family, type, protocol)) == -1){
         cerr << "Socket::Socket - Failed To Create A Socket" << endl;
         perror("Socket::Socket - ");
         exit(1);

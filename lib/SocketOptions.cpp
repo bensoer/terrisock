@@ -173,3 +173,25 @@ int SocketOptions::getSendLowWaterMark(Socket *socket) {
         return result;
     }
 }
+
+bool SocketOptions::setIPHeaderIncluded(Socket *socket) {
+
+    int arg = 1;
+    if(setsockopt(socket->getSocket(), IPPROTO_IP, IP_HDRINCL, &arg, sizeof(arg)) < 0){
+        return false;
+    }else{
+        return true;
+    };
+}
+
+int SocketOptions::getIPHeaderIncludeState(Socket *socket) {
+
+    int result;
+    socklen_t resultsize = sizeof(result);
+    if(getsockopt(socket->getSocket(), IPPROTO_IP, IP_HDRINCL, &result, &resultsize) < 0){
+        cerr << "SocketOptions::getIPHeaderIncludeState - There Was An Error Fetching The Socket Option State" << endl;
+        return 0;
+    }else{
+        return result;
+    }
+}

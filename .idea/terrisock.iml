@@ -5,24 +5,25 @@
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/options_test.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/basic_test.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/CMakeLists.txt" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/tests/simulations/udp_client.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/tests/simulations/udp_server.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/tests/simulations/tcp_client.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/tests/simulations/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/simulations/tcp_server.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/simulations/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/simulations/udp_client.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/simulations/tcp_client.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/simulations/udp_server.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/library/gtest-1.7.0/src/gtest_main.cc" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/library/gtest-1.7.0/src/gtest-all.cc" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/library/gtest-1.7.0/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/library/gtest-1.7.0/cmake/internal_utils.cmake" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/Socket.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/SocketOptions.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/terrisock.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/SocketAddress.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/tcp/TCPSocket.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/lib/tcp/TCPListenerSocket.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/tcp/TCPSocket.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/tcp/TCPListenerSocket.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/tcp/TCPListenerSocket.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/inet/InetAddress.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/inet/InetAddress4.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/inet/InetAddress6.h" isTestSource="false" />
@@ -31,7 +32,18 @@
       <sourceFolder url="file://$MODULE_DIR$/lib/inet/InetAddress6.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/SocketAddress.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/Socket.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/lib/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/raw/ChecksumFactory.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/raw/RawSocket.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/raw/ChecksumFactory.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/raw/PacketFactory.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/raw/headers/IPHeader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/raw/headers/TCPHeader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/raw/headers/TCPHeader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/raw/headers/IPHeader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/raw/headers/UDPHeader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/raw/headers/UDPHeader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/raw/PacketFactory.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/raw/RawSocket.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/SocketOptions.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/udp/UDPSocket.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lib/udp/UDPPacket.h" isTestSource="false" />
