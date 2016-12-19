@@ -20,7 +20,7 @@ int RawSocket::getSocket() {
 }
 
 void RawSocket::setSocket(int socket) {
-
+    this->socket = socket;
 }
 
 void RawSocket::close() {

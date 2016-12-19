@@ -7,16 +7,21 @@
 
 #include <netinet/ip.h>
 #include <string>
+#include "Payload.h"
 
 using namespace std;
 
 namespace terrisock{
-    class IPHeader {
+    class IPHeader : public Payload{
 
     private:
-        struct iphdr IPHeader;
+        char * payload = nullptr;
+        struct iphdr * ip = nullptr;
 
     public:
+
+        IPHeader();
+
         void setHeaderLength(u_int16_t headerLength);
         void setVersion(u_int16_t version);
         void setTypeOfService(u_int16_t typeOfService);
@@ -27,6 +32,9 @@ namespace terrisock{
         void setChecksum(u_int16_t checksum);
         void setSourceAddress(string sourceAddress);
         void setDestinationAddress(string destinationAddress);
+
+        char * getRawHeader();
+        unsigned short * generatePseudoHeader();
     };
 
 
